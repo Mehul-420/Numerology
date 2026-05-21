@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Numerology Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script>
+      (function() {
+        const saved = localStorage.getItem('numerologyStudioTheme');
+        const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', saved || system);
+      })();
+    </script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="main-workspace" aria-label="Numerology calculator">
+        <aside class="input-sidebar">
+          <form id="readingForm" class="reading-form">
+            <div class="form-header">
+              <div>
+                <p class="eyebrow">Numerology Studio</p>
+                <h2>Create a profile</h2>
+              </div>
+              <div class="form-actions">
+                <button class="icon-button theme-toggle" type="button" id="themeToggle" title="Toggle Light/Dark Mode">
+                  <span class="sun-icon" aria-hidden="true">☀</span>
+                  <span class="moon-icon" aria-hidden="true">🌙</span>
+                  <span class="sr-only">Toggle Dark Mode</span>
+                </button>
+                <button class="icon-button" type="button" id="clearHistory" title="Clear saved readings">
+                  <span aria-hidden="true">x</span>
+                  <span class="sr-only">Clear saved readings</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="name-inputs-row">
+              <label>
+                First name
+                <input id="firstName" name="firstName" type="text" placeholder="First" required />
+              </label>
+              <label>
+                Middle name
+                <input id="middleName" name="middleName" type="text" placeholder="Middle" />
+              </label>
+              <label>
+                Last name
+                <input id="lastName" name="lastName" type="text" placeholder="Last" required />
+              </label>
+            </div>
+
+            <div class="date-gender-row">
+              <label>
+                Birth date
+                <input id="birthDate" name="birthDate" type="date" required />
+              </label>
+
+              <div class="mode-row" role="group" aria-label="Gender">
+                <input type="radio" id="male" name="gender" value="male" checked />
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female" />
+                <label for="female">Female</label>
+              </div>
+            </div>
+
+            <button class="primary-action" type="submit">Calculate reading</button>
+          </form>
+
+          <div id="sideSummary" class="side-summary"></div>
+        </aside>
+
+        <section id="results" class="results-panel empty-state" aria-live="polite">
+          <div>
+            <p class="eyebrow">Awaiting details</p>
+            <h2>Your reading will appear here.</h2>
+            <p>
+              Add a name and birth date to calculate the core numerology profile.
+            </p>
+          </div>
+        </section>
+      </section>
+
+      <section class="history-panel" aria-label="Saved readings">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Saved</p>
+            <h2>Recent readings</h2>
+          </div>
+          <span id="historyCount">0</span>
+        </div>
+        <div id="historyList" class="history-list"></div>
+      </section>
+    </main>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
