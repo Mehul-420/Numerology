@@ -7,53 +7,128 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css?v=1.10" />
+    <link rel="stylesheet" href="css/profile-card.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
-      (function() {
-        const saved = localStorage.getItem('numerologyStudioTheme');
-        const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', saved || system);
+      (function () {
+        const saved = localStorage.getItem("numerologyStudioTheme");
+        const system = window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+        document.documentElement.setAttribute("data-theme", saved || system);
       })();
     </script>
   </head>
-  <body>
+  <body class="view-home">
+    <!-- Cosmic Nebula Background Glow Elements -->
+    <div class="cosmic-glow-1"></div>
+    <div class="cosmic-glow-2"></div>
+    <div class="cosmic-glow-3"></div>
+
     <main class="app-shell">
+      <!-- Premium Mockup Navigation Header -->
+      <header class="dashboard-nav">
+        <div class="nav-brand">
+          <div class="mystical-logo">
+            <span class="logo-inner">7</span>
+          </div>
+          <h1>Numerology Hub</h1>
+        </div>
+        <div class="nav-status-group">
+          <!-- Mock Signal Indicators for Premium iOS Mockup Aesthetics -->
+          <div class="signal-indicators" aria-hidden="true">
+            <span class="sig-bar full"></span>
+            <span class="sig-bar full"></span>
+            <span class="sig-bar full"></span>
+            <span class="sig-wifi"></span>
+            <span class="sig-battery"></span>
+          </div>
+
+          <button
+            class="icon-button theme-toggle"
+            type="button"
+            id="themeToggle"
+            title="Toggle Light/Dark Mode"
+          >
+            <svg
+              class="sun-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg
+              class="moon-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <span class="sr-only">Toggle Dark Mode</span>
+          </button>
+        </div>
+      </header>
+
       <section class="main-workspace" aria-label="Numerology calculator">
         <aside class="input-sidebar">
           <form id="readingForm" class="reading-form">
             <div class="form-header">
               <div>
-                <p class="eyebrow">Numerology Studio</p>
-                <h2>Create a profile</h2>
-              </div>
-              <div class="form-actions">
-                <button class="icon-button theme-toggle" type="button" id="themeToggle" title="Toggle Light/Dark Mode">
-                  <span class="sun-icon" aria-hidden="true">☀</span>
-                  <span class="moon-icon" aria-hidden="true">🌙</span>
-                  <span class="sr-only">Toggle Dark Mode</span>
-                </button>
-                <button class="icon-button" type="button" id="clearHistory" title="Clear saved readings">
-                  <span aria-hidden="true">x</span>
-                  <span class="sr-only">Clear saved readings</span>
-                </button>
+                <p class="eyebrow">Vibrational Entry</p>
+                <h2>Create Profile</h2>
               </div>
             </div>
 
             <div class="name-inputs-row">
               <label>
                 First name
-                <input id="firstName" name="firstName" type="text" placeholder="First" required />
+                <input
+                  id="firstName"
+                  name="firstName"
+                  type="text"
+                  placeholder="First"
+                  required
+                />
               </label>
               <label>
                 Middle name
-                <input id="middleName" name="middleName" type="text" placeholder="Middle" />
+                <input
+                  id="middleName"
+                  name="middleName"
+                  type="text"
+                  placeholder="Middle"
+                />
               </label>
               <label>
                 Last name
-                <input id="lastName" name="lastName" type="text" placeholder="Last" required />
+                <input
+                  id="lastName"
+                  name="lastName"
+                  type="text"
+                  placeholder="Last"
+                />
               </label>
             </div>
 
@@ -64,28 +139,26 @@
               </label>
 
               <div class="mode-row" role="group" aria-label="Gender">
-                <input type="radio" id="male" name="gender" value="male" checked />
+                <input
+                  type="radio"
+                  id="male"
+                  name="gender"
+                  value="male"
+                  checked
+                />
                 <label for="male">Male</label>
                 <input type="radio" id="female" name="gender" value="female" />
                 <label for="female">Female</label>
               </div>
             </div>
 
-            <button class="primary-action" type="submit">Calculate reading</button>
+            <button class="primary-action" type="submit">
+              Calculate reading
+            </button>
           </form>
 
           <div id="sideSummary" class="side-summary"></div>
         </aside>
-
-        <section id="results" class="results-panel empty-state" aria-live="polite">
-          <div>
-            <p class="eyebrow">Awaiting details</p>
-            <h2>Your reading will appear here.</h2>
-            <p>
-              Add a name and birth date to calculate the core numerology profile.
-            </p>
-          </div>
-        </section>
       </section>
 
       <section class="history-panel" aria-label="Saved readings">
@@ -98,6 +171,8 @@
         </div>
         <div id="historyList" class="history-list"></div>
       </section>
+
+      <section id="results" class="results-panel" aria-live="polite"></section>
     </main>
 
     <script type="module" src="js/app.js"></script>

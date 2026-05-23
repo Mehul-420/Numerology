@@ -6,6 +6,6 @@ export const OPTIMIZATION_CONFIG = {
 };
 
 export const MUTATION_LIMITS = {
-  MAX_NAME_LENGTH: 15,
+  MAX_NAME_LENGTH: 50,
   MAX_MUTATIONS_PER_NAME: 2
 };

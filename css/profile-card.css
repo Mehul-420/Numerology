@@ -1,0 +1,249 @@
+.shareable-profile-card {
+  width: 400px; /* Fixed width for consistent image export */
+  aspect-ratio: 4/5;
+  background: radial-gradient(circle at top right, #2a154a 0%, #0a0814 60%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  font-family: 'Manrope', sans-serif;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Cosmic glow element inside the card */
+.shareable-profile-card::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 250px;
+  height: 250px;
+  background: rgba(139, 92, 246, 0.25);
+  filter: blur(50px);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.spc-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1;
+}
+
+.spc-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #8b5cf6, #d946ef);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  box-shadow: 0 4px 10px rgba(139, 92, 246, 0.4);
+}
+
+.spc-brand {
+  margin: 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.spc-user {
+  text-align: center;
+  margin: 20px 0 30px 0;
+  z-index: 1;
+}
+
+.spc-name {
+  font-family: 'Cinzel', serif;
+  font-size: 34px;
+  margin: 0 0 5px 0;
+  background: linear-gradient(to right, #ffffff, #d8b4fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(216, 180, 254, 0.2);
+}
+
+.spc-dob {
+  font-size: 14px;
+  color: #a78bfa;
+  margin: 0;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.spc-metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  z-index: 1;
+}
+
+.spc-metric {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.spc-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.spc-value {
+  font-family: 'Cinzel', serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+  line-height: 1;
+}
+
+.spc-footer {
+  text-align: center;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.3);
+  z-index: 1;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  margin-top: 20px;
+}
+
+/* Version 2 Share Card Styles */
+.shareable-profile-card-v2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.spc-user-overlay {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 20px;
+}
+
+.spc-user-brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.spc-user-info {
+  text-align: right;
+}
+
+.spc-user-info h2 {
+  margin: 0;
+  font-family: 'Cinzel', serif;
+  font-size: 32px;
+  line-height: 1.1;
+  background: linear-gradient(to right, #ffffff, #d8b4fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+.spc-user-info p {
+  margin: 5px 0 0 0;
+  font-size: 14px;
+  color: #a78bfa;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+
+.spc-content-wrapper {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 24px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.spc-content-wrapper .bento-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.spc-footer-v2 {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.spc-footer-v2 strong {
+  color: #a78bfa;
+}
+
+/* Ensure bento cards look good in the export */
+.spc-content-wrapper .bento-card {
+  background: rgba(139, 92, 246, 0.06);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: 16px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.spc-content-wrapper .bento-card.span-2 {
+  grid-column: span 2;
+}
+
+.spc-content-wrapper .bento-card h3 {
+  font-size: 0.9rem;
+  margin: 0 0 0.75rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #a78bfa;
+}
+
+.spc-content-wrapper .bento-value {
+  font-size: 3rem;
+  font-weight: 900;
+  font-family: 'Cinzel', serif;
+  margin: 0.5rem 0;
+  line-height: 1;
+}
+
+.spc-content-wrapper .bento-card.accent-primary {
+  background: linear-gradient(135deg, #2e1d82 0%, #1a1145 100%) !important;
+  text-align: center;
+  align-items: center;
+}
+
+.spc-content-wrapper .bento-card.accent-primary * {
+  background: linear-gradient(to bottom, #fef3c7 0%, #fbbf24 50%, #d97706 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: #fbbf24 !important; /* Fallback for export engines */
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}

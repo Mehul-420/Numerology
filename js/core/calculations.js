@@ -35,28 +35,32 @@ export function getChaldeanNameTotal(name) {
 
 export function calculateLifePath(dateValue) {
   const [year, month, day] = dateValue.split("-").map(Number);
-  const total = reduceNumber(year, false) + reduceNumber(month, false) + reduceNumber(day, false);
+  const total = reduceNumber(year, true) + reduceNumber(month, true) + reduceNumber(day, true);
   return reduceNumber(total);
 }
 
 export function calculateLifePathKarmic(dateValue) {
   const [year, month, day] = dateValue.split("-").map(Number);
-  const total = reduceNumber(year, false) + reduceNumber(month, false) + reduceNumber(day, false);
+  const total = reduceNumber(year, true) + reduceNumber(month, true) + reduceNumber(day, true);
   return detectDuringReduction(total, karmicNumbers);
 }
 
 export function calculateBhagyank(dateValue) {
-  return reduceNumber(sumDateDigits(dateValue), false);
+  const [year, month, day] = dateValue.split("-").map(Number);
+  const total = reduceNumber(day, true) + reduceNumber(month, true) + reduceNumber(year, true);
+  return reduceNumber(total, false);
 }
 
 export function calculateBhagyankMaster(dateValue) {
   const [year, month, day] = dateValue.split("-").map(Number);
-  return reduceNumber(day + month + year, true);
+  const total = reduceNumber(day, true) + reduceNumber(month, true) + reduceNumber(year, true);
+  return reduceNumber(total, true);
 }
 
 export function calculateBhagyankKarmic(dateValue) {
   const [year, month, day] = dateValue.split("-").map(Number);
-  return detectDuringReduction(day + month + year, karmicNumbers);
+  const total = reduceNumber(day, true) + reduceNumber(month, true) + reduceNumber(year, true);
+  return detectDuringReduction(total, karmicNumbers);
 }
 
 export function calculateKua(year, gender) {
@@ -111,6 +115,7 @@ export function normalizeReading(reading) {
     bhagyankKarmic: reading.bhagyankKarmic || calculateBhagyankKarmic(reading.birthDate),
     kua: reading.kua || calculateKua(year, gender),
     nameNumber: reading.nameNumber || calculateNameNumber(reading.name),
+    nameNumberMaster: reading.nameNumberMaster || reduceNumber(getChaldeanNameTotal(reading.name), true),
     nameNumberKarmic: reading.nameNumberKarmic || detectDuringReduction(getChaldeanNameTotal(reading.name), karmicNumbers),
     lifePathKarmic: reading.lifePathKarmic || calculateLifePathKarmic(reading.birthDate),
     destinyKarmic: reading.destinyKarmic || detectDuringReduction(sumLetters(reading.name), karmicNumbers),
